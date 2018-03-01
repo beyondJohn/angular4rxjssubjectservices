@@ -13,7 +13,8 @@ export class RedundantComponent implements OnInit {
   ngOnInit() {
   }
   report() {
-    if(this._auth.isLoginSubject['value'] == true){
+    if(typeof this._auth.isLoginSubject['value'] == 'object'){
+      console.log("this._auth.isLoginSubject: ", this._auth.isLoginSubject)
       return "Logged In stil working";
     } 
     else{

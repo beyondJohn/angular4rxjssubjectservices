@@ -6,28 +6,29 @@ import { AuthService } from '../services/auth.service';
   templateUrl: './ui.component.html',
   styleUrls: ['./ui.component.css']
 })
-export class UiComponent{
+export class UiComponent {
 
   constructor(private _auth: AuthService) { }
   report() {
-    if(this._auth.isLoginSubject['value'] == true){
-      return "Logged In";
-    } 
-    else{
+    if (typeof this._auth.isLoginSubject['value'] == 'object') {
+      return "awesome " + this._auth.isLoginSubject['value']['text'];
+      //return "Logged In";
+    }
+    else {
       return "Logged Out";
     }
   }
-  
+
   btnclick() {
 
     console.log(this._auth.isLoginSubject['_value']);
   }
   btnclicklogin() {
-
-    this._auth.login();
+    console.log('bumpkin');
+    this._auth.login({ text: 'hey there' });
   }
   btnclicklogout() {
 
-    this._auth.logout();
+    console.log('logout');
   }
 }
