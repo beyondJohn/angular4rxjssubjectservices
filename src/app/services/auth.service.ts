@@ -7,14 +7,6 @@ export class AuthService {
   isLoginSubject = new BehaviorSubject<boolean>(this.hasToken());
   
     /**
-     *
-     * @returns {Observable<T>}
-     */
-    isLoggedIn() : Observable<boolean> {
-      return this.isLoginSubject.asObservable();
-    }
-  
-    /**
      *  Login the user then tell all the subscribers about the new status
      */
     login() : void {
